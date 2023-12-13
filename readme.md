@@ -29,7 +29,7 @@ Hashcash is a well-accepted and standard PoW algorithm which is used in various 
 
 # Application structure
 
-Application is designed as a single binary with two entry points: server and client (analogy with Geth). Both server and client are implemented as separate packages.
+Application is designed as a single binary with two entry points: server and client (analogy with Geth). Both server and client are implemented as separate packages. Hence we have a single docker file here.
 
 ## How to run
 
@@ -51,18 +51,12 @@ Dockerfile used for both client and server could be found in infrastructure/loca
 
 # Further improvements
 
+Due to huge task scope and time limitations, there are a lot of things that could be improved. Here is the list of the most important ones:
 - Add unit tests
 - Add integration tests
 - Introduce difficulty level for POW and measure number of requests per second
 - Integrate with some online REST quote service
-- Deploy to DO
+- Add reply attack protection 
 
 
-
-
-
-* местами нет проверки ошибок (скорее всего случайность)
-
-
-* защиты от reply атаки нет в принципе, всегда можно слать одно и то же решение
 
