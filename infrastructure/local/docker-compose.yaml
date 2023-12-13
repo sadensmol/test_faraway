@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  server:
+    build:
+      context: ../../.
+      dockerfile: infrastructure/local/Dockerfile
+    restart: on-failure
+    command: ["sh","-c","./test_faraway server -p 8888"]
+
+  client:
+    build:
+      context: ../../.
+      dockerfile: infrastructure/local/Dockerfile
+    restart: on-failure
+    depends_on:
+      - server
+    command: ["sh","-c","./test_faraway client -u server:8888"]
+
